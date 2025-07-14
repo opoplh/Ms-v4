@@ -1,0 +1,12 @@
+FROM fedora:latest
+
+RUN dnf install -y \
+    openssh-server \
+    sudo \
+    wget \
+    tmate && \
+    echo 'root:root' | chpasswd && \
+    sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    mkdir -p /var/run/sshd
+
+CMD ["/usr/sbin/sshd", "-D"]

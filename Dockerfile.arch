@@ -1,0 +1,13 @@
+FROM archlinux:latest
+
+RUN pacman -Syu --noconfirm && \
+    pacman -S --noconfirm \
+        openssh \
+        sudo \
+        wget \
+        tmate && \
+    echo 'root:root' | chpasswd && \
+    sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    mkdir -p /var/run/sshd
+
+CMD ["/usr/bin/sshd", "-D"]

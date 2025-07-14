@@ -33,4 +33,5 @@ docker build -t arch-vps -f Dockerfile.arch . \
 && docker build -t ubuntu-vps -f Dockerfile.ubuntu .
 
 main : bot-script.py
+
 □■■■□■■■□■■■□■■■□■■■□■■■□■■■□■■■□

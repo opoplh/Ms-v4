@@ -1,0 +1,12 @@
+FROM alpine:latest
+
+RUN apk add --no-cache \
+    openssh \
+    sudo \
+    tmate \
+    shadow && \
+    echo "root:root" | chpasswd && \
+    sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    mkdir -p /run/sshd
+
+CMD ["/usr/sbin/sshd", "-D"]

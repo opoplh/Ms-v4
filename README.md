@@ -21,9 +21,9 @@ Ubuntu
 
 Clone This Repository:
 
-git clone https://github.com/hycroedev/vps-deploy-bot.git && cd vps-deploy-bot
+git clone https://github.com/hycroedev/vps-deploy-bot.git && cd vps-deploy-bot && pip install discord.py docker psutil
 
-𝗕𝗨𝗜𝗟𝗗 𝗔𝗟𝗟 𝗩𝗣𝗦 𝗜𝗠𝗔𝗚𝗘𝗦:
+𝗕𝗨𝗜𝗟𝗗 𝗔𝗟𝗟 docker 𝗜𝗠𝗔𝗚𝗘𝗦:
 
 docker build -t arch-vps -f Dockerfile.arch . \
 && docker build -t fedora-vps -f Dockerfile.fedora . \

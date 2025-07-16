@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-# Install base packages (including xz for .tar.xz extraction)
+# Install base packages
 RUN apk add --no-cache \
     openssh \
     sudo \
@@ -11,13 +11,14 @@ RUN apk add --no-cache \
     zlib \
     wget \
     tar \
-    xz && \
+    xz \
+    python3 && \
     echo "root:root" | chpasswd && \
     sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     mkdir -p /run/sshd && \
     ssh-keygen -A
 
-# Download and install tmate (correct URL)
+# Download and install tmate
 RUN wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz -O /tmp/tmate.tar.xz && \
     mkdir -p /tmp/tmate && \
     tar -xf /tmp/tmate.tar.xz -C /tmp/tmate --strip-components=1 && \
@@ -25,7 +26,11 @@ RUN wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-s
     chmod +x /usr/local/bin/tmate && \
     rm -rf /tmp/tmate*
 
-# Expose SSH port (optional)
+# Install Fake systemctl
+RUN wget -O /usr/bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py && \
+    chmod +x /usr/bin/systemctl
+
+# Expose SSH port
 EXPOSE 22
 
 # Start SSHD

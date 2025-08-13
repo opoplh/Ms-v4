@@ -1,4 +1,4 @@
-VPS Deploy Bot 🚀                                                                           
+MS-V4 Deploy Bot 🚀                                                                           
 
 Simple docker build scripts for multiple Linux-based VPS containers.
 
@@ -32,6 +32,6 @@ docker build -t arch-vps -f Dockerfile.arch . \
 && docker build -t debian-vps -f Dockerfile.debian . \
 && docker build -t ubuntu-vps -f Dockerfile.ubuntu .
 
-main : bot-script.py
+main : V4.py
 
 □■■■□■■■□■■■□■■■□■■■□■■■□■■■□■■■□

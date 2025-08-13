@@ -21,7 +21,7 @@ Ubuntu
 
 Clone This Repository:
 
-git clone https://github.com/hycroedev/vps-deploy-bot.git && cd vps-deploy-bot && pip install discord.py docker psutil
+git clone https://github.com/opoplh/Ms-v4 && cd Ms-v4 && pip install discord.py docker psutil
 
 𝗕𝗨𝗜𝗟𝗗 𝗔𝗟𝗟 docker 𝗜𝗠𝗔𝗚𝗘𝗦:
 
